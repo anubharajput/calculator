@@ -32,11 +32,11 @@ for (let i = 0; i < keysArray.length; i++) {
             }
             break;
             default:{
-             if(keysArray[i].innerHTML==='.' && inputText.length==0)
+             if((keysArray[i].innerHTML==='.' && inputText.length==0))
              {
                 inputText.push("0", ".");
-                output.value = inputText.join("");
-                number = ["0", "."];
+                number.push("0",".");
+                output.value = number.join("");
              } 
              else if(
               //to handle operator in begining
@@ -54,10 +54,22 @@ for (let i = 0; i < keysArray.length; i++) {
                  {
                     number=[];
                  }
+                 if(inputText[inputText.length-1]=="+" && keysArray[i].innerHTML=="-"){
+                  inputText[inputText.length-1]="-";
+                  output.value=inputText.join("");
+                 } else if("=,-,/,*".includes(inputText[inputText.length-1]) && number.length==0 && keysArray[i].innerHTML==".")
+                 {
+                  inputText.push("0",".");
+                  number.push("0",".");
+                  output.value=inputText.join("");
+                 }
+                 else{
+                 if(keysArray[i].innerHTML==".")
                  number.push(keysArray[i].innerHTML);
                  inputText.push(keysArray[i].innerHTML);
                  output.value=inputText.join("");
-                 console.log(inputText);
+                 console.log(number);
+                 }
              }
             }
     }
