@@ -102,11 +102,11 @@ function Calculation() {
     displayOutput.values = "NaN";
     inputText = [];
   }
-  if (result === Infinity) {
+ else if (result === Infinity) {
     displayOutput.value = "INFINITY";
     inputText = [];
   }
-  if (result === undefined) {
+  else if(result === undefined) {
     displayOutput.value = "NaN";
     inputText = [];
   }
@@ -116,12 +116,11 @@ function convertStringToArray(str) {
   let number = "";
   for (const char of str) {
     if ("*/+-".includes(char)) {
-      if (number === "" && char === "-") {
-        number = "-";
-      } else {
+      (number === "" && char === "-")?
+        number = "-":
+      
         result.push(parseFloat(number), char);
         number = "";
-      }
     } else {
       number += char;
     }
@@ -129,6 +128,7 @@ function convertStringToArray(str) {
   if (number !== "") {
     result.push(parseFloat(number));
   }
+  console.log(result);
   return result;
 }
 let operator_value;
