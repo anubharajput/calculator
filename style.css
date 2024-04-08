@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  border: 2px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 0 2rem;
+  width: 50%;
+  margin: auto;
+  margin-top: 5vw;
+}
+
+.container #output {
+  border: 2px solid lightgray;
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 9vh;
+  min-height: 9vh;
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: right;
+}
+
+.container #output::-webkit-scrollbar {
+  display: none;
+}
+
+.container .keypad {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+
+.container .keypad .container-k1 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  justify-content: space-between;
+}
+
+.container .keypad .key-value {
+  width: 30%;
+  border: 2px solid lightgray;
+  height: 7vh;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.container .keypad .container-k2 {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.container .keypad .container-k2 .key-value {
+  width: 85%;
+}
+
+.container .keypad .operator {
+  background-color: #e4e1e1;
+}
+
+.container .keypad .container-k2 .equal-key {
+  flex-grow: 1;
+  background-color: rgb(66, 158, 255);
+  color: white;
+  border: none;
+}
+
+@media (min-width: 1440px) {
+  .container {
+    width: 40%;
+  }
+
+  .container #output {
+    height: 14vh;
+  }
+
+  .container .keypad .key-value {
+    height: 9vh;
+  }
+}
+
+@media (min-width: 2400px) {
+  .container {
+    margin-top: 3vw;
+    width: 35%;
+  }
+
+  .container .keypad .key-value {
+    font-size: 2.5rem;
+  }
+
+  .container #output {
+    height: 18vh;
+    font-size: 2.5rem;
+    padding: 2rem;
+  }
+
+  .container .keypad .key-value {
+    height: 11vh;
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: 90%;
+    padding: 1rem 1rem 0 1rem;
+  }
+
+  .container #output {
+    height: 6vh;
+    font-size: 1rem;
+  }
+
+  .container .keypad {
+    padding-top: 1rem;
+  }
+
+  .container .keypad .key-value {
+    height: 5vh;
+    font-size: 1rem;
+  }
+}
