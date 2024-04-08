@@ -4,7 +4,7 @@
     box-sizing: border-box;
   }
   
-  .calculator {
+  .container {
     border: 2px solid lightgray;
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@
     margin-top: 5vw;
   }
   
-  .calculator .input {
+  .container #output {
     border: 2px solid lightgray;
     width: 100%;
     height: 8vh;
@@ -23,24 +23,24 @@
     text-align: right;
   }
   
-  .calculator .input::-webkit-scrollbar {
+  .container #output::-webkit-scrollbar {
     display: none;
   }
   
-  .calculator .keypad {
+  .container .keypad {
     display: flex;
     justify-content: space-between;
     padding-top: 2rem;
   }
   
-  .calculator .keypad .container-k1 {
+  .container .keypad .container-k1 {
     display: flex;
     flex-wrap: wrap;
     width: 75%;
     justify-content: space-between;
   }
   
-  .calculator .keypad .key {
+  .container .keypad .key-value {
     width: 30%;
     border: 2px solid lightgray;
     height: 7vh;
@@ -52,22 +52,22 @@
     cursor: pointer;
   }
   
-  .calculator .keypad .container-k2 {
+  .container .keypad .container-k2 {
     width: 25%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
   }
   
-  .calculator .keypad .container-k2 .key {
+  .container .keypad .container-k2 .key-value {
     width: 85%;
   }
   
-  .calculator .keypad .operator {
+  .container .keypad .operator {
     background-color: #e4e1e1;
   }
   
-  .calculator .keypad .container-k2 .long-key {
+  .container .keypad .container-k2 .equal-key {
     flex-grow: 1;
     background-color: rgb(66, 158, 255);
     color: white;
@@ -75,56 +75,56 @@
   }
   
   @media (min-width: 1440px) {
-    .calculator {
+    .container {
       width: 40%;
     }
   
-    .calculator .input {
+    .container #output {
       height: 14vh;
     }
   
-    .calculator .keypad .key {
+    .container .keypad .key-value {
       height: 9vh;
     }
   }
   
   @media (min-width: 2400px) {
-    .calculator {
+    .container {
       margin-top: 3vw;
       width: 35%;
     }
   
-    .calculator .keypad .key {
+    .container .keypad .key-value {
       font-size: 2.5rem;
     }
   
-    .calculator .input {
+    .container #output {
       height: 18vh;
       font-size: 2.5rem;
       padding: 2rem;
     }
   
-    .calculator .keypad .key {
+    .container .keypad .key-value {
       height: 11vh;
     }
   }
   
   @media (max-width: 760px) {
-    .calculator {
+    .container {
       width: 90%;
       padding: 1rem 1rem 0 1rem;
     }
   
-    .calculator .input {
+    .container #output {
       height: 6vh;
       font-size: 1rem;
     }
   
-    .calculator .keypad {
+    .container .keypad {
       padding-top: 1rem;
     }
   
-    .calculator .keypad .key {
+    .container .keypad .key-value {
       height: 5vh;
       font-size: 1rem;
     }

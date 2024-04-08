@@ -1,5 +1,5 @@
-const output = document.querySelector(".input");
-const keys = document.querySelectorAll(".key");
+const output = document.getElementById("output");
+const keys = document.querySelectorAll(".key-value");
 const keysArray = Array.from(keys);
 output.value = 0;
 let inputText = [];
@@ -21,7 +21,7 @@ for (let i = 0; i < keysArray.length; i++) {
         case "=":
         {
        number=[];
-       handleCalculation();
+       Calculation();
         }
         break;
         case "C":
@@ -39,10 +39,16 @@ for (let i = 0; i < keysArray.length; i++) {
                 number = ["0", "."];
              } 
              else if(
+              //to handle operator in begining
                 !(inputText.length===0 && "+,/,*".includes(keysArray[i].innerHTML)) &&
-                !("+,/,*".includes(inputText[inputText.length-1]) && "+,/,*".includes(keysArray[i].innerHTML)) &&
+                //to handle to two operatoer together
+                !("+,/,*,-".includes(inputText[inputText.length-1]) && "+,/,*".includes(keysArray[i].innerHTML)) &&
+                //to handle - sign after any other operator
                 !(inputText[inputText.length-1] === '-' && keysArray[i].innerHTML=== '-')  &&
-                !(number.includes(".") && keysArray[i].innerHTML=='.')
+                //to handle two dots
+                !(number.includes(".") && keysArray[i].innerHTML=='.') &&
+                //to handle zero at begining
+                !(inputText[inputText.length-1] === '0' && inputText.length==1 && keysArray[i].innerHTML=="0")
                ){
                  if("+,-,/,*".includes(keysArray[i].innerHTML))
                  {
@@ -57,10 +63,9 @@ for (let i = 0; i < keysArray.length; i++) {
     }
   });
 }
-function handleCalculation()
+function Calculation()
 {
     let value=output.value;
-    console.log(convertStringToArray(value));
     result=getResult(convertStringToArray(value));
     if(result?.toString().includes("."))
     {
@@ -82,6 +87,7 @@ function handleCalculation()
         output.value="NaN";
         inputText=[];
     }
+    console.log(output.value);
 }
 function convertStringToArray(str)
 {
